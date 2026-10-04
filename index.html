@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Emi 💖</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center;font-family:"Segoe UI",sans-serif;background:linear-gradient(135deg,#ff758c,#ff7eb3,#c471ed);position:relative}
+.contenedor{position:relative;z-index:10;width:90%;max-width:650px;padding:50px 30px;text-align:center;border-radius:30px;background:rgba(255,255,255,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 20px 50px rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.35)}
+.corazon-grande{font-size:75px;animation:latido 1.2s infinite;margin-bottom:15px}
+h1{color:white;font-size:clamp(38px,8vw,70px);text-shadow:0 5px 15px rgba(0,0,0,.2);margin-bottom:15px}
+p{color:white;font-size:clamp(20px,4vw,28px);line-height:1.5;text-shadow:0 3px 10px rgba(0,0,0,.2)}
+.firma{margin-top:25px;color:white;font-size:18px;opacity:.9}
+.corazon{position:absolute;bottom:-50px;font-size:25px;animation:subir linear infinite;opacity:.8;pointer-events:none}
+@keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+@keyframes subir{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.brillo{position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.12);filter:blur(10px);animation:mover 8s infinite alternate ease-in-out}
+.brillo:nth-child(1){top:-100px;left:-100px}.brillo:nth-child(2){bottom:-100px;right:-100px;animation-delay:2s}
+@keyframes mover{from{transform:translate(0,0) scale(1)}to{transform:translate(100px,60px) scale(1.3)}}
+</style>
+</head>
+<body>
+<div class="brillo"></div><div class="brillo"></div>
+<div class="contenedor">
+<div class="corazon-grande">💖</div>
+<h1>Te amo mucho, Emi</h1>
+<p>Eres una persona muy especial para mí 🫶🏼<br>y quería recordártelo de una manera bonita. 💕</p>
+<div class="firma">Con mucho amor 💗</div>
+</div>
+<script>
+const corazones=["❤️","💖","💕","💗","💓","💞","🩷","🫶🏼"];
+function crearCorazon(){
+ const c=document.createElement("div"); c.classList.add("corazon");
+ c.innerHTML=corazones[Math.floor(Math.random()*corazones.length)];
+ c.style.left=Math.random()*100+"vw";
+ c.style.fontSize=(Math.random()*25+15)+"px";
+ const d=Math.random()*5+5; c.style.animationDuration=d+"s";
+ document.body.appendChild(c); setTimeout(()=>c.remove(),d*1000);
+}
+setInterval(crearCorazon,300);
+</script>
+</body>
+</html>
